@@ -1,0 +1,77 @@
+.assign-container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.assign-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.assign-form input {
+  flex: 1 1 180px;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background: #2563eb;
+  color: #fff;
+}
+
+.edit-btn {
+  background: #f59e0b;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.cancel-btn {
+  background: #6b7280;
+  color: #fff;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: #fff;
+}
+
+.assign-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.assign-table th,
+.assign-table td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: center;
+}
+
+.assign-table th {
+  background: #1e293b; /* darker header */
+  color: #fff;
+  font-weight: 600;
+}
+
+.assign-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.assign-table tr:hover {
+  background: #f1f5f9;
+}

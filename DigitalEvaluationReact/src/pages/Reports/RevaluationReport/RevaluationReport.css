@@ -1,0 +1,78 @@
+.reval-container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filters input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button */
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #007bff;
+  color: white;
+}
+
+/* Table */
+.table-wrapper {
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #333;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* States */
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 15px;
+  color: gray;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}

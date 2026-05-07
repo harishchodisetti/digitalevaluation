@@ -1,0 +1,101 @@
+.question-report-container {
+  padding: 20px;
+}
+
+/* Title */
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Filters */
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filters-grid input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button */
+.btn {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.btn.primary {
+  background: #28a745;
+  color: white;
+}
+
+.btn.full {
+  grid-column: span 4;
+}
+
+/* Table */
+.table-wrapper {
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #333;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Colors based on performance */
+.low {
+  color: red;
+  font-weight: bold;
+}
+
+.medium {
+  color: orange;
+}
+
+.high {
+  color: green;
+  font-weight: bold;
+}
+
+/* States */
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 15px;
+  color: gray;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

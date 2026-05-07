@@ -1,0 +1,79 @@
+.subject-report-container {
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* 🔥 GRID FILTERS */
+.filters.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filters input {
+  padding: 6px;
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.btn.primary {
+  background: #007bff;
+  color: white;
+}
+
+/* Table */
+.table-wrapper {
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #333;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* States */
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 15px;
+  color: gray;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

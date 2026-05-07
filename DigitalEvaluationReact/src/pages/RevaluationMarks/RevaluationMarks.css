@@ -1,0 +1,147 @@
+/* Page container */
+.marks-container {
+  padding: 20px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Main heading */
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1e293b;
+  text-align: center;
+}
+
+/* Section headings inside cards */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #374151;
+  text-align: center;
+}
+
+/* Card layout */
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Form styling */
+.marks-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.marks-form input {
+  flex: 1 1 220px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #f59e0b;
+  color: #fff;
+  margin-right: 6px;
+}
+
+.btn-secondary:hover {
+  background: #d97706;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+/* Table styling */
+.table-wrapper {
+  display: flex;
+  justify-content: center; /* Center the table horizontally */
+  overflow-x: auto; /* Allow scroll on small screens */
+}
+
+.marks-table {
+  border-collapse: collapse;
+  min-width: 700px; /* Prevent squashing */
+  margin: 0 auto;   /* Center table inside wrapper */
+}
+
+.marks-table th,
+.marks-table td {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.marks-table th {
+  background: #1e293b;
+  color: #fff;
+  font-weight: 600;
+}
+
+.marks-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.marks-table tr:hover {
+  background: #f1f5f9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marks-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .marks-form input {
+    flex: 1 1 100%;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .marks-table {
+    font-size: 12px;
+    min-width: 100%; /* Allow table to shrink on mobile */
+  }
+}

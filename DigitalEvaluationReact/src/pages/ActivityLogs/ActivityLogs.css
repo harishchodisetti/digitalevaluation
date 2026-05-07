@@ -1,0 +1,123 @@
+.activity-container {
+  width: 95%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.activity-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* FILTERS */
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-grid input,
+.filter-grid select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* BUTTON */
+
+.btn-main {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-main:hover {
+  background: #1d4ed8;
+}
+
+/* TABLE */
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.activity-table th {
+  background: #1e293b;
+  color: white;
+}
+
+.activity-table th,
+.activity-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.activity-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* TOTAL */
+
+.total {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* PAGINATION */
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border: none;
+  background: #334155;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* STATES */
+
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-table th,
+  .activity-table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+}

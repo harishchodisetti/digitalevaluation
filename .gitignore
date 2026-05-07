@@ -1,0 +1,10 @@
+# Frontend
+DigitalEvaluationReact/node_modules
+DigitalEvaluationReact/dist
+
+# Backend
+**/bin
+**/obj
+.vs
+*.user
+*.suo

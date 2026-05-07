@@ -1,0 +1,164 @@
+/* ===== Container ===== */
+.login-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ===== Brand Title ===== */
+.brand-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Box (Glassmorphism) ===== */
+.login-box {
+  width: 380px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center contents */
+}
+
+.login-box h2,
+.login-subtitle {
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 5px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.login-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* ===== Google Button ===== */
+.google-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 90%; /* Match input width */
+}
+
+/* ===== Divider ===== */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 12px;
+  margin: 20px 0;
+  width: 90%;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 0.75em;
+}
+.divider:not(:empty)::after {
+  margin-left: 0.75em;
+}
+
+/* ===== Form ===== */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Center inputs/buttons */
+  gap: 18px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== Inputs ===== */
+.login-box input {
+  width: 90%;            /* Centered width */
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+  text-align: left;      /* Keep text professional */
+}
+
+.login-box input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.25);
+  outline: none;
+}
+
+/* ===== Button with Gradient ===== */
+.login-box button {
+  width: 90%;            /* Match input width */
+  padding: 14px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.login-box button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37,99,235,0.3);
+}
+
+.login-box button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* ===== Footer ===== */
+.login-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.login-footer span {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .login-box {
+    width: 92%;
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+  .brand-title {
+    font-size: 24px;
+  }
+  .login-box h2 {
+    font-size: 20px;
+  }
+}

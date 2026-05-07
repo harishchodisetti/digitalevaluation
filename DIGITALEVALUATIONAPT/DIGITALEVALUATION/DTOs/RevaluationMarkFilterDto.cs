@@ -1,0 +1,10 @@
+﻿namespace DIGITALEVALUATION.DTOs
+{
+    public class RevaluationMarkFilterDto
+    {
+        public int? RevaluationDetailId { get; set; }
+
+        public int PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
+    }
+}

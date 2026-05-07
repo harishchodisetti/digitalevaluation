@@ -1,0 +1,259 @@
+/* PAGE */
+.question-container {
+  padding: 30px;
+  background: #eef1f5;
+  min-height: 100vh;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* FORM CARD */
+.question-card {
+  max-width: 650px;
+  margin: auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* LABEL */
+.question-card label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* INPUTS */
+.question-card input,
+.question-card select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+}
+
+.question-card input:focus,
+.question-card select:focus {
+  border-color: #22c55e;
+}
+
+/* ERROR */
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -6px;
+}
+
+/* BUTTONS */
+.add-btn {
+  background: #22c55e;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-btn:hover {
+  background: #16a34a;
+}
+
+.cancel-btn {
+  background: #6b7280;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #4b5563;
+}
+
+/* SEARCH */
+.search-box {
+  display: block;
+  margin: 15px auto;
+  padding: 10px;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* TABLE CONTAINER */
+.table-container {
+  max-width: 1100px;
+  margin: auto;
+  overflow-x: auto;
+}
+
+/* TABLE */
+.question-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* HEADER */
+.question-table th {
+  background: #1f2937;
+  color: white;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* ROWS */
+.question-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+/* HOVER */
+.question-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* ACTION BUTTONS */
+.question-table button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.question-table button:first-child {
+  background: #3b82f6;
+  color: white;
+}
+
+.question-table button:first-child:hover {
+  background: #2563eb;
+}
+
+.question-table button:last-child {
+  background: #ef4444;
+  color: white;
+}
+
+.question-table button:last-child:hover {
+  background: #dc2626;
+}
+
+/* PAGINATION */
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  margin: 5px;
+  border-radius: 6px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background: gray;
+}
+
+/* ===================== */
+/* 📱 MOBILE RESPONSIVE */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .question-container {
+    padding: 15px;
+  }
+
+  .question-card {
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  /* TABLE → STACK VIEW */
+  .question-table thead {
+    display: none;
+  }
+
+  .question-table,
+  .question-table tbody,
+  .question-table tr,
+  .question-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .question-table tr {
+    margin-bottom: 15px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  }
+
+  .question-table td {
+    text-align: left;
+    padding: 8px;
+    border: none;
+    position: relative;
+  }
+
+  .question-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+    color: #374151;
+  }
+}
+
+/* ===================== */
+/* 📲 SMALL MOBILE */
+/* ===================== */
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .add-btn,
+  .cancel-btn {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .question-card input,
+  .question-card select {
+    padding: 8px;
+    font-size: 12px;
+  }
+}

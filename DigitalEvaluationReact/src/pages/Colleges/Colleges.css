@@ -1,0 +1,221 @@
+.college-container {
+  padding: 30px;
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+.title {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 30px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.college-card {
+  max-width: 550px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.college-card label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.college-card input {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.college-card input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.input-error {
+  border: 1px solid red !important;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+}
+
+.table-container {
+  margin-top: 35px;
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+  overflow-x: auto;
+}
+
+.table-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  width: 320px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+.college-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.college-table th {
+  background: linear-gradient(to right, #0f172a, #1d4ed8);
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.college-table td {
+  border: 1px solid #e2e8f0;
+  padding: 14px;
+  text-align: center;
+}
+
+.college-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.edit-row {
+  background: #dbeafe !important;
+}
+
+.edit-row input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn {
+  background: #16a34a;
+}
+
+.add-btn:hover {
+  background: #15803d;
+}
+
+.edit-btn {
+  background: #2563eb;
+}
+
+.edit-btn:hover {
+  background: #1d4ed8;
+}
+
+.save-btn {
+  background: #16a34a;
+}
+
+.save-btn:hover {
+  background: #15803d;
+}
+
+.delete-btn {
+  background: #dc2626;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+.cancel-btn {
+  background: #64748b;
+}
+
+.cancel-btn:hover {
+  background: #475569;
+}
+
+.page-btn {
+  background: #0f172a;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.page-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.no-data {
+  padding: 20px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+
+  .college-container {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .college-card {
+    padding: 18px;
+  }
+
+  .college-table th,
+  .college-table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}

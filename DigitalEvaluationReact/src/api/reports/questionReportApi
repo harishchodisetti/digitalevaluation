@@ -1,0 +1,6 @@
+import API from "../axios";
+
+// POST /reports/question
+export const getQuestionReport = (data) => {
+  return API.post("/reports/question", data);
+};
