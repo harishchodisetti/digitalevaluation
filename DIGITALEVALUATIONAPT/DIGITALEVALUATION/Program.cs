@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using DIGITALEVALUATION.Exceptions;
-using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -48,12 +47,13 @@ builder.Services.AddScoped<IReportService, ReportService>();
 builder.Services.AddScoped<IExportService, ExportService>();
 builder.Services.AddScoped<IAuditLogService, AuditLogService>();
 builder.Services.AddScoped<IActivityLogService, ActivityLogService>();
+
 // DB
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
-//  JWT Authentication
+// JWT Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -61,7 +61,9 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(o =>
 {
-    o.RequireHttpsMetadata = false;
+    // 🔥 UPDATED: Production HTTPS metadata enabled automatically
+    o.RequireHttpsMetadata = !builder.Environment.IsDevelopment();
+
     o.SaveToken = false;
 
     o.TokenValidationParameters = new TokenValidationParameters
@@ -76,7 +78,7 @@ builder.Services.AddAuthentication(options =>
             Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
     };
 
-    // 🔥 IMPORTANT: Allow OPTIONS (CORS preflight)
+    // Allow OPTIONS (CORS preflight)
     o.Events = new JwtBearerEvents
     {
         OnMessageReceived = context =>
@@ -125,19 +127,31 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// 🌐 CORS FIX (FINAL)
+
+// ==========================================================
+// 🔥 UPDATED SECTION: ENVIRONMENT-BASED CORS
+// Development → localhost
+// Production → app.genbasesoftware.com
+// ==========================================================
+var allowedOrigins = builder.Environment.IsDevelopment()
+    ? new[] { "https://localhost:5173", "https://localhost:5174" }
+    : new[] { "https://app.genbasesoftware.com" };
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("https://localhost:5173", "https://localhost:5174")
+            policy.WithOrigins(allowedOrigins)
                   .AllowAnyHeader()
                   .AllowAnyMethod()
-                   .AllowCredentials();
+                  .AllowCredentials();
         });
 });
+// ==========================================================
 
+
+// Build app
 var app = builder.Build();
 
 // Seed Roles
@@ -162,16 +176,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseMiddleware<ExceptionMiddleware>();
+
 app.UseHttpsRedirection();
 
-app.UseRouting();                // 🔥 REQUIRED
+app.UseRouting();
 
-app.UseCors("AllowFrontend");   // 🔥 MUST BEFORE AUTH
+// 🔥 IMPORTANT: Keep BEFORE Auth
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.UseStaticFiles();
+
 app.MapControllers();
 
 app.Run();

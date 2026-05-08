@@ -1,0 +1,60 @@
+name: Deploy to Windows Shared Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # FRONTEND BUILD
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Frontend Dependencies
+        working-directory: ./DigitalEvaluationReact
+        run: npm install
+
+      - name: Build Frontend
+        working-directory: ./DigitalEvaluationReact
+        run: npm run build
+
+      # BACKEND BUILD
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Publish Backend
+        working-directory: ./DIGITALEVALUATIONAPT/DIGITALEVALUATION
+        run: dotnet publish -c Release -o publish
+
+      # FTP DEPLOY FRONTEND
+      - name: Deploy Frontend
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: ./DigitalEvaluationReact/dist/
+          server-dir: ${{ secrets.REMOTE_DIR }}/
+
+      # FTP DEPLOY BACKEND
+      - name: Deploy Backend
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: ./DIGITALEVALUATIONAPT/DIGITALEVALUATION/publish/
+          server-dir: ${{ secrets.REMOTE_DIR }}/api/
