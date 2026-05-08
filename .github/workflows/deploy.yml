@@ -10,10 +10,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      # Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # FRONTEND BUILD
+      # =========================
+      # FRONTEND BUILD (React)
+      # =========================
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -27,7 +30,9 @@ jobs:
         working-directory: ./DigitalEvaluationReact
         run: npm run build
 
-      # BACKEND BUILD
+      # =========================
+      # BACKEND BUILD (.NET 8)
+      # =========================
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -37,24 +42,32 @@ jobs:
         working-directory: ./DIGITALEVALUATIONAPT/DIGITALEVALUATION
         run: dotnet publish -c Release -o publish
 
-      # FTP DEPLOY FRONTEND
-      - name: Deploy Frontend
+      # =========================
+      # DEPLOY FRONTEND
+      # =========================
+      - name: Deploy Frontend to Root
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
+          protocol: ftps
+          security: loose
           local-dir: ./DigitalEvaluationReact/dist/
-          server-dir: ${{ secrets.REMOTE_DIR }}/
+          server-dir: /
 
-      # FTP DEPLOY BACKEND
-      - name: Deploy Backend
+      # =========================
+      # DEPLOY BACKEND
+      # =========================
+      - name: Deploy Backend to API Folder
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
+          protocol: ftps
+          security: loose
           local-dir: ./DIGITALEVALUATIONAPT/DIGITALEVALUATION/publish/
-          server-dir: ${{ secrets.REMOTE_DIR }}/api/
+          server-dir: /api/
