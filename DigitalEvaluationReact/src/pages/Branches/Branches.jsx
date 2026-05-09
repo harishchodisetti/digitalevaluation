@@ -71,11 +71,25 @@ function Branches() {
         branchCode: "",
         hodFacultyId: ""
       });
-    } catch (err) {
-      toast.error(err.response?.data || "Add failed ❌", {
-        id: toastId
-      });
-    }
+    }catch (err) {
+
+  console.error(err);
+
+  let errorMessage = "Add failed ❌";
+
+  if (typeof err.response?.data === "string") {
+
+    errorMessage = err.response.data;
+
+  } else if (err.response?.data?.message) {
+
+    errorMessage = err.response.data.message;
+  }
+
+  toast.error(errorMessage, {
+    id: toastId
+  });
+}
   };
 
   // ================= EDIT =================
@@ -108,10 +122,24 @@ function Branches() {
       setEditForm({});
       loadBranches();
     } catch (err) {
-      toast.error(err.response?.data || "Update failed ❌", {
-        id: toastId
-      });
-    }
+
+  console.error(err);
+
+  let errorMessage = "Update failed ❌";
+
+  if (typeof err.response?.data === "string") {
+
+    errorMessage = err.response.data;
+
+  } else if (err.response?.data?.message) {
+
+    errorMessage = err.response.data.message;
+  }
+
+  toast.error(errorMessage, {
+    id: toastId
+  });
+}
   };
 
   // ================= DELETE =================
@@ -124,9 +152,25 @@ function Branches() {
       await removeBranch(id);
       toast.success("Deleted successfully 🗑️", { id: toastId });
       loadBranches();
-    } catch {
-      toast.error("Delete failed ❌", { id: toastId });
-    }
+    }catch (err) {
+
+  console.error(err);
+
+  let errorMessage = "Delete failed ❌";
+
+  if (typeof err.response?.data === "string") {
+
+    errorMessage = err.response.data;
+
+  } else if (err.response?.data?.message) {
+
+    errorMessage = err.response.data.message;
+  }
+
+  toast.error(errorMessage, {
+    id: toastId
+  });
+}
   };
 
   // ================= FILTER =================
@@ -142,7 +186,7 @@ function Branches() {
 
       {/* FORM */}
       <form className="branch-card" onSubmit={handleAdd}>
-        <h3>Add Branch</h3>
+       
 
         <div className="form-group">
           <label>College ID</label>
